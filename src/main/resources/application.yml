@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: RikkeiInternalAIAssistant
+  
+  profiles:
+    active: dev # Kích hoạt profile dev, hệ thống sẽ tự động đọc thêm file application-dev.yml
+
+  jpa:
+    hibernate:
+      ddl-auto: none # Sử dụng SQL thuần để quản lý DB, không dùng Hibernate tự tạo bảng
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  ai:
+    vectorstore:
+      pgvector:
+        index-type: HNSW
+        distance-type: COSINE_DISTANCE
+        dimensions: 1536
+        initialize-schema: true
